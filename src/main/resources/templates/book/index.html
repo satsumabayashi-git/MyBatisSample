@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>メニュー画面</title>
+</head>
+<body>
+	<h1>書籍管理メニュー</h1>
+	<ul>
+		<li><a th:href="@{/list}">書籍一覧表示</a></li>
+		<li><a th:href="@{/detail/2}">書籍詳細</a></li>
+		<li><a th:href="@{/create}">新しい書籍を作成</a></li>
+		<li><a th:href="@{/update/2}">書籍を更新</a></li>
+		<li><a th:href="@{/delete/2}">書籍を削除</a></li>
+	</ul>
+</body>
+</html>
