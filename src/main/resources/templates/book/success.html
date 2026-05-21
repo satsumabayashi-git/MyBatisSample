@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>操作結果</title>
+<meta charset="UTF-8">
+<title>操作結果</title>
 </head>
 <body>
 	<h1 th:text="${message}">メッセージ</h1>
@@ -13,6 +13,7 @@
 				<th>ID</th>
 				<th>タイトル</th>
 				<th>著者</th>
+				<th>出版社</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -20,23 +21,32 @@
 				<td th:text="${book.id}">ID</td>
 				<td th:text="${book.title}">タイトル</td>
 				<td th:text="${book.author}">著者</td>
+				<td th:text="${book.publisher.name}">出版社</td>
 			</tr>
 		</tbody>
 	</table>
 	<!-- 書籍詳細表示の場合 -->
 	<div th:if="${book}">
 		<p>
-			<strong>ID:</strong>
-			<span th:text="${book.id}">ID</span>
+			<strong>ID:</strong> <span th:text="${book.id}">ID</span>
 		</p>
 		<p>
-			<strong>タイトル:</strong>
-			<span th:text="${book.title}">タイトル</span>
+			<strong>タイトル:</strong> <span th:text="${book.title}">タイトル</span>
 		</p>
 		<p>
-			<strong>著者:</strong>
-			<span th:text="${book.author}">著者</span>
+			<strong>著者:</strong> <span th:text="${book.author}">著者</span>
 		</p>
+		<hr>
+		
+		<!-- レビュー一覧の表示 -->
+		<div th:if="${book.reviews}">
+			<h3>レビュー一覧:</h3>
+			<ul>
+				<li th:each="review : ${book.reviews}"><span
+					th:text="${review.reviewText}">レビューテキスト</span></li>
+			</ul>
+		</div>
+
 	</div>
 	<a th:href="@{/}">メニューに戻る</a>
 </body>

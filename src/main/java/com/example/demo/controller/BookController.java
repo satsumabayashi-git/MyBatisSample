@@ -28,8 +28,7 @@ public class BookController {
 	}
 
 	@GetMapping("/detail/{id}")
-	public String showBook(@PathVariable int id, Model model) {
-		//@PathVariable → {id} = int id 
+	public String showBook(@PathVariable int id, Model model) {   //@PathVariable → {id} = int id 
 		model.addAttribute("message", "詳細表示");
 		model.addAttribute("book", bookMapper.getBookById(id));
 		return "book/success";
